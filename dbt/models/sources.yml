@@ -1,0 +1,15 @@
+version: 2
+sources:
+  - name: raw
+    schema: "{{ env_var('DBT_RAW_SCHEMA', 'raw') }}"
+    tables:
+      - name: members
+      - name: eligibility
+      - name: encounters
+      - name: claims
+      - name: pharmacy
+      - name: labs
+      - name: providers
+      - name: organisations
+      - name: geography
+      - name: identity_map

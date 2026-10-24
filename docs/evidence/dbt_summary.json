@@ -1,0 +1,12 @@
+{
+  "models": 24,
+  "tests": 51,
+  "statuses": {
+    "success": 24,
+    "pass": 51
+  },
+  "synthetic_population": 25000,
+  "run_type": "incremental rerun of unchanged full dataset",
+  "snowflake_executed": false,
+  "live_llm_executed": false
+}

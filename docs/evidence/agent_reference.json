@@ -1,0 +1,33 @@
+{
+  "mode": "deterministic reference (not an LLM run)",
+  "findings": [
+    {
+      "source": "claims",
+      "rule": "invalid_amount",
+      "count": 1,
+      "recommendation": "Check claim adjustment semantics. This demo expects latest net paid amounts, not negative adjustment lines.",
+      "requires_review": true
+    },
+    {
+      "source": "claims",
+      "rule": "invalid_service_date",
+      "count": 1,
+      "recommendation": "Check source date format and original extract; do not impute a clinical date.",
+      "requires_review": true
+    },
+    {
+      "source": "claims",
+      "rule": "invalid_diagnosis",
+      "count": 1,
+      "recommendation": "Check the documented diagnosis allow-list and source coding; do not invent a replacement.",
+      "requires_review": true
+    },
+    {
+      "source": "claims",
+      "rule": "unknown_member",
+      "count": 1,
+      "recommendation": "Check source-system crosswalk; quarantine until the source owner resolves the identifier.",
+      "requires_review": true
+    }
+  ]
+}

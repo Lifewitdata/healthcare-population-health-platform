@@ -1,0 +1,17 @@
+healthcare:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PATH', '../runtime/healthcare.duckdb') }}"
+      threads: 4
+    snowflake:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', '') }}"
+      user: "{{ env_var('SNOWFLAKE_USER', '') }}"
+      authenticator: "{{ env_var('SNOWFLAKE_AUTHENTICATOR', 'externalbrowser') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'SYSADMIN') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'HEALTHCARE_POPULATION') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'HEALTHCARE_WH') }}"
+      schema: ANALYTICS
+      threads: 4

@@ -1,0 +1,41 @@
+provider_id,org_id,specialty
+P1,O1,Internal Medicine
+P2,O2,Pulmonology
+P3,O3,Primary Care
+P4,O4,Internal Medicine
+P5,O5,Pulmonology
+P6,O6,Primary Care
+P7,O7,Internal Medicine
+P8,O8,Pulmonology
+P9,O1,Primary Care
+P10,O2,Internal Medicine
+P11,O3,Pulmonology
+P12,O4,Primary Care
+P13,O5,Internal Medicine
+P14,O6,Pulmonology
+P15,O7,Primary Care
+P16,O8,Internal Medicine
+P17,O1,Pulmonology
+P18,O2,Primary Care
+P19,O3,Internal Medicine
+P20,O4,Pulmonology
+P21,O5,Primary Care
+P22,O6,Internal Medicine
+P23,O7,Pulmonology
+P24,O8,Primary Care
+P25,O1,Internal Medicine
+P26,O2,Pulmonology
+P27,O3,Primary Care
+P28,O4,Internal Medicine
+P29,O5,Pulmonology
+P30,O6,Primary Care
+P31,O7,Internal Medicine
+P32,O8,Pulmonology
+P33,O1,Primary Care
+P34,O2,Internal Medicine
+P35,O3,Pulmonology
+P36,O4,Primary Care
+P37,O5,Internal Medicine
+P38,O6,Pulmonology
+P39,O7,Primary Care
+P40,O8,Internal Medicine

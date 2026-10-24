@@ -1,0 +1,12 @@
+# Tested environment; install these before pip install -e .
+polars==1.44.2
+duckdb==1.5.6
+dbt-duckdb==1.11.0
+dbt-snowflake==1.12.4
+snowflake-connector-python==4.8.0
+prefect==3.9.0
+streamlit==1.66.1
+plotly==6.9.0
+openai==2.54.0
+pyyaml==6.0.3
+pytest==9.1.1

@@ -1,0 +1,114 @@
+{
+  "synthetic": true,
+  "reconciliation": {
+    "members": {
+      "raw": 25000,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 25000
+    },
+    "identity_map": {
+      "raw": 100000,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 100000
+    },
+    "eligibility": {
+      "raw": 474901,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 474901
+    },
+    "encounters": {
+      "raw": 137394,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 137394
+    },
+    "claims": {
+      "raw": 283034,
+      "exact_duplicates": 1,
+      "quarantined": 4,
+      "superseded_versions": 8241,
+      "accepted": 274788
+    },
+    "pharmacy": {
+      "raw": 166595,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 166595
+    },
+    "labs": {
+      "raw": 8494,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 8494
+    },
+    "providers": {
+      "raw": 40,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 40
+    },
+    "organisations": {
+      "raw": 8,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 8
+    },
+    "geography": {
+      "raw": 4,
+      "exact_duplicates": 0,
+      "quarantined": 0,
+      "superseded_versions": 0,
+      "accepted": 4
+    }
+  },
+  "incidents": [
+    {
+      "source": "claims",
+      "rule": "invalid_amount",
+      "count": 1
+    },
+    {
+      "source": "claims",
+      "rule": "invalid_service_date",
+      "count": 1
+    },
+    {
+      "source": "claims",
+      "rule": "invalid_diagnosis",
+      "count": 1
+    },
+    {
+      "source": "claims",
+      "rule": "unknown_member",
+      "count": 1
+    }
+  ],
+  "fhir": {
+    "patients": 25000,
+    "observations": 8494,
+    "matched": true
+  },
+  "sha256": {
+    "encounters.csv": "9b77358906d84b2275f942839b159ed137fb0eff7ed4c6418b3ec86eedf230f5",
+    "pharmacy.csv": "4189affd730c446295b1fe36e1595d08b16e84ee82366bf8374f3fd13f9c6a42",
+    "claims.csv": "8902fd3a0950dcda19acddbec04aeca91a3c46d81cd56ef8275c03797d384177",
+    "providers.csv": "d1d7512c946678abd8cf50e478167010c252e909974e4ac18a692baae8014785",
+    "labs.csv": "df621abb128dc30a384e2036d22cf4b97773be22f1e629a85951ceaacb8c42e4",
+    "geography.csv": "b8162bf840754af004e1742d81bb153713ba5e9fbc85152de0e27ae00a7697ed",
+    "eligibility.csv": "02584984838cc32c311b6e210826cbdf31ac7ff2372700a2d65cc3b214077e62",
+    "identity_map.csv": "45312a3267f69acbd2efbe18a1e1ca15c330b1d7edf897461751fd959c652d0f",
+    "organisations.csv": "b511d72815819268be5d6c2a10a86c2bd05119883829ea08f9a4b88ab91dbd71",
+    "members.csv": "f3656948aa99c6f77b50f0cd5e28b2464b9171bda3e3b62e304c4b3cbe080e0b"
+  }
+}

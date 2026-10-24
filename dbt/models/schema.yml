@@ -1,0 +1,127 @@
+version: 2
+models:
+  - name: stg_members
+    description: "Synthetic healthcare stg_members; see docs/data_dictionary.md for grain."
+    columns:
+      - name: member_id
+        data_tests: [unique, not_null]
+  - name: stg_eligibility
+    description: "Synthetic healthcare stg_eligibility; see docs/data_dictionary.md for grain."
+    columns:
+      - name: eligibility_id
+        data_tests: [unique, not_null]
+  - name: stg_encounters
+    description: "Synthetic healthcare stg_encounters; see docs/data_dictionary.md for grain."
+    columns:
+      - name: encounter_id
+        data_tests: [unique, not_null]
+  - name: stg_claims
+    description: "Synthetic healthcare stg_claims; see docs/data_dictionary.md for grain."
+    columns:
+      - name: claim_line_id
+        data_tests: [unique, not_null]
+  - name: stg_pharmacy
+    description: "Synthetic healthcare stg_pharmacy; see docs/data_dictionary.md for grain."
+    columns:
+      - name: fill_id
+        data_tests: [unique, not_null]
+  - name: stg_labs
+    description: "Synthetic healthcare stg_labs; see docs/data_dictionary.md for grain."
+    columns:
+      - name: lab_id
+        data_tests: [unique, not_null]
+  - name: stg_providers
+    description: "Synthetic healthcare stg_providers; see docs/data_dictionary.md for grain."
+    columns:
+      - name: provider_id
+        data_tests: [unique, not_null]
+  - name: stg_organisations
+    description: "Synthetic healthcare stg_organisations; see docs/data_dictionary.md for grain."
+    columns:
+      - name: org_id
+        data_tests: [unique, not_null]
+  - name: stg_geography
+    description: "Synthetic healthcare stg_geography; see docs/data_dictionary.md for grain."
+    columns:
+      - name: geo_id
+        data_tests: [unique, not_null]
+  - name: dim_members
+    description: "Synthetic healthcare dim_members; see docs/data_dictionary.md for grain."
+    columns:
+      - name: member_id
+        data_tests: [unique, not_null]
+  - name: dim_providers
+    description: "Synthetic healthcare dim_providers; see docs/data_dictionary.md for grain."
+    columns:
+      - name: provider_id
+        data_tests: [unique, not_null]
+  - name: dim_organisations
+    description: "Synthetic healthcare dim_organisations; see docs/data_dictionary.md for grain."
+    columns:
+      - name: org_id
+        data_tests: [unique, not_null]
+  - name: dim_geography
+    description: "Synthetic healthcare dim_geography; see docs/data_dictionary.md for grain."
+    columns:
+      - name: geo_id
+        data_tests: [unique, not_null]
+  - name: fact_eligibility
+    description: "Synthetic healthcare fact_eligibility; see docs/data_dictionary.md for grain."
+    columns:
+      - name: eligibility_id
+        data_tests: [unique, not_null]
+      - name: member_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_members')
+                field: member_id
+  - name: fact_encounters
+    description: "Synthetic healthcare fact_encounters; see docs/data_dictionary.md for grain."
+    columns:
+      - name: encounter_id
+        data_tests: [unique, not_null]
+      - name: member_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_members')
+                field: member_id
+  - name: fact_claims
+    description: "Synthetic healthcare fact_claims; see docs/data_dictionary.md for grain."
+    columns:
+      - name: claim_line_id
+        data_tests: [unique, not_null]
+      - name: member_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_members')
+                field: member_id
+  - name: fact_pharmacy
+    description: "Synthetic healthcare fact_pharmacy; see docs/data_dictionary.md for grain."
+    columns:
+      - name: fill_id
+        data_tests: [unique, not_null]
+      - name: member_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_members')
+                field: member_id
+  - name: fact_labs
+    description: "Synthetic healthcare fact_labs; see docs/data_dictionary.md for grain."
+    columns:
+      - name: lab_id
+        data_tests: [unique, not_null]
+      - name: member_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_members')
+                field: member_id

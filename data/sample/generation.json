@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "members": 10,
+  "period": "2024-01-01 to 2025-12-31",
+  "synthetic": true,
+  "raw_rows": {
+    "members": 10,
+    "identity_map": 40,
+    "eligibility": 182,
+    "encounters": 45,
+    "claims": 97,
+    "pharmacy": 65,
+    "labs": 1,
+    "providers": 40,
+    "organisations": 8,
+    "geography": 4
+  },
+  "injected_invalid_claims": 4
+}

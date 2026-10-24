@@ -1,0 +1,11 @@
+{"resourceType": "Patient", "id": "EHR000001", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000001"}]}
+{"resourceType": "Patient", "id": "EHR000002", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000002"}]}
+{"resourceType": "Patient", "id": "EHR000003", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000003"}]}
+{"resourceType": "Patient", "id": "EHR000004", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000004"}]}
+{"resourceType": "Patient", "id": "EHR000005", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000005"}]}
+{"resourceType": "Patient", "id": "EHR000006", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000006"}]}
+{"resourceType": "Patient", "id": "EHR000007", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000007"}]}
+{"resourceType": "Observation", "id": "L000008-2024", "status": "final", "code": {"coding": [{"system": "http://loinc.org", "code": "4548-4"}]}, "subject": {"reference": "Patient/EHR000008"}, "effectiveDateTime": "2024-07-15", "valueQuantity": {"value": 7.1, "unit": "%", "system": "http://unitsofmeasure.org", "code": "%"}}
+{"resourceType": "Patient", "id": "EHR000008", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000008"}]}
+{"resourceType": "Patient", "id": "EHR000009", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000009"}]}
+{"resourceType": "Patient", "id": "EHR000010", "active": true, "identifier": [{"system": "urn:synthetic:member", "value": "M000010"}]}
