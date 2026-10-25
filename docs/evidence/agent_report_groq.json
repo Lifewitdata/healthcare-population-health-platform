@@ -1,0 +1,85 @@
+{
+  "mode": "live LLM",
+  "report": "{\n  \"findings\": [\n    {\n      \"source\": \"claims\",\n      \"total_records\": 283034,\n      \"accepted_records\": 274788,\n      \"exact_duplicates\": 1,\n      \"quarantined_records\": 4,\n      \"superseded_versions\": 8241,\n      \"incident_summary\": {\n        \"invalid_diagnosis\": 1,\n        \"invalid_amount\": 1,\n        \"invalid_service_date\": 1,\n        \"unknown_member\": 1\n      },\n      \"hypotheses\": [\n        \"The synthetic data generator may have used diagnosis codes that are not present in the documented allow\u2011list, leading to an invalid_diagnosis incident.\",\n        \"Synthetic monetary fields (e.g., claim amounts) might have been generated without respecting the business rule that only net paid amounts are allowed, resulting in an invalid_amount incident.\",\n        \"Service dates could have been formatted incorrectly or shifted outside the allowed range during synthesis, causing an invalid_service_date incident.\",\n        \"Member identifiers may have been fabricated without a proper cross\u2011walk to the identity_map, producing an unknown_member incident.\"\n      ]\n    }\n  ],\n  \"evidence\": [\n    {\n      \"type\": \"source_counts\",\n      \"source\": \"claims\",\n      \"details\": {\n        \"raw\": 283034,\n        \"exact_duplicates\": 1,\n        \"quarantined\": 4,\n        \"superseded_versions\": 8241,\n        \"accepted\": 274788\n      }\n    },\n    {\n      \"type\": \"rule_guidance\",\n      \"rule\": \"invalid_diagnosis\",\n      \"guidance\": \"Check the documented diagnosis allow-list and source coding; do not invent a replacement.\"\n    },\n    {\n      \"type\": \"rule_guidance\",\n      \"rule\": \"invalid_amount\",\n      \"guidance\": \"Check claim adjustment semantics. This demo expects latest net paid amounts, not negative adjustment lines.\"\n    },\n    {\n      \"type\": \"rule_guidance\",\n      \"rule\": \"invalid_service_date\",\n      \"guidance\": \"Check source date format and original extract; do not impute a clinical date.\"\n    },\n    {\n      \"type\": \"rule_guidance\",\n      \"rule\": \"unknown_member\",\n      \"guidance\": \"Check source-system crosswalk; quarantine until the source owner resolves the identifier.\"\n    }\n  ],\n  \"proposed_actions\": [\n    {\n      \"action_id\": \"review_invalid_diagnosis\",\n      \"description\": \"Locate the claim record flagged for invalid_diagnosis, compare its diagnosis code against the official diagnosis allow\u2011list, and document the discrepancy.\",\n      \"requires_human_review\": true\n    },\n    {\n      \"action_id\": \"review_invalid_amount\",\n      \"description\": \"Inspect the claim record flagged for invalid_amount, verify that the amount field follows the net\u2011paid rule, and note any negative or adjustment values.\",\n      \"requires_human_review\": true\n    },\n    {\n      \"action_id\": \"review_invalid_service_date\",\n      \"description\": \"Examine the claim record flagged for invalid_service_date, confirm the date format and range against source specifications, and record any deviations.\",\n      \"requires_human_review\": true\n    },\n    {\n      \"action_id\": \"review_unknown_member\",\n      \"description\": \"Identify the claim record with an unknown_member, cross\u2011reference the member identifier with the identity_map, and determine if the ID is missing or malformed.\",\n      \"requires_human_review\": true\n    },\n    {\n      \"action_id\": \"synthetic_generator_audit\",\n      \"description\": \"Perform an audit of the synthetic data generation pipeline for the claims domain to ensure that diagnosis codes, monetary fields, service dates, and member IDs are derived from validated reference tables and respect the documented rules.\",\n      \"requires_human_review\": true\n    },\n    {\n      \"action_id\": \"validation_rule_update\",\n      \"description\": \"Update the automated validation suite to surface these four rule violations earlier in the pipeline, linking each to the corresponding guidance document.\",\n      \"requires_human_review\": true\n    }\n  ]\n}",
+  "trace": [
+    {
+      "tool": "get_rule_guidance",
+      "arguments": {
+        "rule": "unknown_member"
+      },
+      "result": {
+        "rule": "unknown_member",
+        "guidance": "Check source-system crosswalk; quarantine until the source owner resolves the identifier."
+      }
+    },
+    {
+      "tool": "get_rule_guidance",
+      "arguments": {
+        "rule": "invalid_diagnosis"
+      },
+      "result": {
+        "rule": "invalid_diagnosis",
+        "guidance": "Check the documented diagnosis allow-list and source coding; do not invent a replacement."
+      }
+    },
+    {
+      "tool": "get_rule_guidance",
+      "arguments": {
+        "rule": "invalid_amount"
+      },
+      "result": {
+        "rule": "invalid_amount",
+        "guidance": "Check claim adjustment semantics. This demo expects latest net paid amounts, not negative adjustment lines."
+      }
+    },
+    {
+      "tool": "get_rule_guidance",
+      "arguments": {
+        "rule": "invalid_service_date"
+      },
+      "result": {
+        "rule": "invalid_service_date",
+        "guidance": "Check source date format and original extract; do not impute a clinical date."
+      }
+    },
+    {
+      "tool": "get_source_evidence",
+      "arguments": {
+        "source": "claims"
+      },
+      "result": {
+        "source": "claims",
+        "counts": {
+          "raw": 283034,
+          "exact_duplicates": 1,
+          "quarantined": 4,
+          "superseded_versions": 8241,
+          "accepted": 274788
+        },
+        "incidents": [
+          {
+            "source": "claims",
+            "rule": "invalid_diagnosis",
+            "count": 1
+          },
+          {
+            "source": "claims",
+            "rule": "invalid_amount",
+            "count": 1
+          },
+          {
+            "source": "claims",
+            "rule": "invalid_service_date",
+            "count": 1
+          },
+          {
+            "source": "claims",
+            "rule": "unknown_member",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ],
+  "review_required": true
+}
