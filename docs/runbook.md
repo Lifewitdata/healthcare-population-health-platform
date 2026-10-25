@@ -23,11 +23,22 @@ The generation seed is 42. Generated raw data, processed data, DuckDB and report
 
 1. Review and explicitly authorise warehouse/bootstrap.sql; execute it in Snowflake.
 2. Copy the non-secret variable names from .env.example into your shell. This application does not automatically load .env. Set your account and username; externalbrowser authentication is the default. Do not commit secrets.
-3. Run `healthcare build --target snowflake --members 25000` from your local computer. It generates data, authenticates via your browser, uploads validated CSVs with PUT/COPY, and runs dbt build against Snowflake.
+3. Run `healthcare build --target snowflake --members 25000` from your local computer. It generates data, authenticates using your selected method, uploads validated CSVs with PUT/COPY, and runs dbt build against Snowflake.
 4. Review ANALYTICS_REPORTING and dbt/target/run_results.json. The dashboard currently reads the local warehouse; use the local build for its current data source. A Snowflake dashboard connection is a future extension.
 5. When idle the new warehouse suspends after 60 seconds. Compute and storage still incur provider charges according to your account.
 
 SQL bootstrap is supplied but no Snowflake execution is implied by local results. Table refreshes are scoped to the dedicated project database.
+
+### Native username/password login (PowerShell)
+
+For a native Snowflake login, select password authentication before building:
+
+```powershell
+$env:SNOWFLAKE_AUTHENTICATOR = "snowflake"
+healthcare build --target snowflake --members 25000
+```
+
+Type your password at the hidden prompt in the terminal. It is temporarily passed to the loader and dbt through the process environment and removed afterward, including on failure. The application does not write it to files; dbt uses its secret environment-variable convention for log masking. Never paste passwords into chat or commit them. If your account requires MFA, follow its authentication policy; this setting does not bypass MFA. For unattended runs, supply DBT_ENV_SECRET_SNOWFLAKE_PASSWORD through your secret manager.
 
 ## Agent
 
