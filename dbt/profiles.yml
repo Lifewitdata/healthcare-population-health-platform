@@ -10,6 +10,7 @@ healthcare:
       account: "{{ env_var('SNOWFLAKE_ACCOUNT', '') }}"
       user: "{{ env_var('SNOWFLAKE_USER', '') }}"
       authenticator: "{{ env_var('SNOWFLAKE_AUTHENTICATOR', 'externalbrowser') }}"
+      password: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_PASSWORD', '') }}"
       role: "{{ env_var('SNOWFLAKE_ROLE', 'SYSADMIN') }}"
       database: "{{ env_var('SNOWFLAKE_DATABASE', 'HEALTHCARE_POPULATION') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'HEALTHCARE_WH') }}"
