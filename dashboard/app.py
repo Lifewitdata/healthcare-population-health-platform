@@ -3,6 +3,7 @@ import json,os
 import duckdb
 import streamlit as st
 import plotly.express as px
+from healthcare.executive import findings, charts, brief
 st.set_page_config(page_title='Healthcare Population Health',page_icon='🏥',layout='wide')
 st.title('Population health & cost analytics')
 st.caption('SYNTHETIC DATA • Educational portfolio • 2024–2025 • No clinical or compliance claims')
@@ -19,7 +20,7 @@ except duckdb.Error:
 regions=st.sidebar.multiselect('Regions',sorted(cost.region.unique()),default=sorted(cost.region.unique()))
 cost=cost[cost.region.isin(regions)]
 st.sidebar.caption('Region selection applies to Cost overview only. Other tabs show the whole population.')
-tabs=st.tabs(['Cost overview','Utilisation','Care gaps','Savings scenarios','Pipeline quality'])
+tabs=st.tabs(['Cost overview','Utilisation','Care gaps','Savings scenarios','Pipeline quality','Executive summary'])
 with tabs[0]:
     total=cost.total_paid.sum();months=cost.member_months.sum()
     a,b,c=st.columns(3);a.metric('Total paid',f'${total:,.0f}');b.metric('Eligible member-months',f'{months:,.0f}');c.metric('PMPM',f'${total/months:,.2f}' if months else '—')
@@ -45,3 +46,15 @@ with tabs[4]:
     q=json.loads((root/'clean/quality.json').read_text())
     st.json(q['reconciliation']);st.dataframe(q['incidents'],hide_index=True);st.json(q['fhir'])
     if (root/'agent_report.json').exists():st.json(json.loads((root/'agent_report.json').read_text()))
+with tabs[5]:
+    st.subheader('Where is our cost concentrated, and which members could we help?')
+    st.caption('All regions. Historical synthetic data; review candidates, not a current outreach list. Region filters do not apply.')
+    summary=findings(root/'healthcare.duckdb')
+    for name, svg in charts(summary).items():
+        st.image(svg)
+        st.download_button('Download '+name.replace('_',' ')+' chart',svg,
+                           file_name=name+'.svg',mime='image/svg+xml',key=name)
+    st.markdown('**Recommended actions**'+brief(summary).split('**Recommended actions**',1)[1].split('*Source:',1)[0])
+    st.download_button('Download client brief (Markdown)',brief(summary),
+                       file_name='executive_summary.md',mime='text/markdown')
+    st.caption('To use the Markdown offline, place the three SVG downloads in images/executive/ beside it.')

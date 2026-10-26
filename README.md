@@ -2,6 +2,8 @@
 
 A reproducible portfolio pipeline joining synthetic eligibility, EHR encounters, medical claims, pharmacy fills and lab results. Python/Polars transforms source extracts; dbt builds cost and population-health reports; Streamlit makes them reviewable. Snowflake deployment code and a bounded tool-calling investigation agent are included.
 
+**For business readers:** [Read the one-page care management summary](docs/executive_summary.md) — three findings with dashboard charts, recommended actions and clear limitations.
+
 **Status:** local implementation validated on 25,000 synthetic members (24 models, 51 dbt tests); see docs/validation.md for measured results. Snowflake provisioning requires approval. No live LLM run is claimed.
 
 ## Run locally

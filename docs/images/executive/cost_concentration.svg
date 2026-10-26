@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="112" viewBox="0 0 440 112" role="img" aria-label="Share of medical + pharmacy spending: Top 5% of members: 19.9% of spend; Other 95%: 80.1% of spend">
+<rect width="440" height="112" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#183047">
+<text x="16" y="22" font-size="14" font-weight="bold">Share of medical + pharmacy spending</text>
+<rect x="16" y="38" width="400" height="22" rx="3" fill="#dce5ed"/>
+<rect x="16" y="38" width="79.438" height="22" fill="#087e8b"/>
+<rect x="16" y="75" width="9" height="9" fill="#087e8b"/>
+<text x="31" y="84" font-size="12">Top 5% of members: 19.9% of spend</text>
+<rect x="16" y="94" width="9" height="9" fill="#dce5ed"/>
+<text x="31" y="103" font-size="12">Other 95%: 80.1% of spend</text>
+</g></svg>

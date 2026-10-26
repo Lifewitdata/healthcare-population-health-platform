@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="112" viewBox="0 0 440 112" role="img" aria-label="2025 eligible hospital discharges: 30-day return proxy: 239 (3.2%); No qualifying return: 7,177">
+<rect width="440" height="112" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#183047">
+<text x="16" y="22" font-size="14" font-weight="bold">2025 eligible hospital discharges</text>
+<rect x="16" y="38" width="400" height="22" rx="3" fill="#dce5ed"/>
+<rect x="16" y="38" width="12.891" height="22" fill="#087e8b"/>
+<rect x="16" y="75" width="9" height="9" fill="#087e8b"/>
+<text x="31" y="84" font-size="12">30-day return proxy: 239 (3.2%)</text>
+<rect x="16" y="94" width="9" height="9" fill="#dce5ed"/>
+<text x="31" y="103" font-size="12">No qualifying return: 7,177</text>
+</g></svg>
